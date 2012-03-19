@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="Sources"/>
-  <classpathentry combineaccessrules="false" kind="con" path="WOFramework/JavaEOAccess"/>
-  <classpathentry combineaccessrules="false" kind="con" path="WOFramework/JavaEOControl"/>
-  <classpathentry combineaccessrules="false" kind="con" path="WOFramework/JavaFoundation"/>
-  <classpathentry combineaccessrules="false" kind="con" path="WOFramework/JavaJDBCAdaptor"/>
-  <classpathentry combineaccessrules="false" kind="con" path="WOFramework/JavaWebObjects"/>
-  <classpathentry combineaccessrules="false" kind="con" path="WOFramework/JavaXML"/>
+	<classpathentry kind="con" path="WOFramework/JavaEOAccess"/>
+	<classpathentry kind="con" path="WOFramework/JavaEOControl"/>
+	<classpathentry kind="con" path="WOFramework/JavaFoundation"/>
+	<classpathentry kind="con" path="WOFramework/JavaJDBCAdaptor"/>
+	<classpathentry kind="con" path="WOFramework/JavaWebObjects"/>
+	<classpathentry kind="con" path="WOFramework/JavaXML"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="Libraries/junit-dep-4.10.jar"/>
+	<classpathentry kind="lib" path="Libraries/selenium-server-standalone-2.20.0.jar"/>
+	<classpathentry kind="lib" path="Libraries/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="Libraries/jmock-2.4.0.jar"/>
+	<classpathentry kind="lib" path="Libraries/mockito-core-1.8.1-rc1.jar"/>
+	<classpathentry kind="lib" path="Libraries/objenesis-1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
