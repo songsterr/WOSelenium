@@ -6,10 +6,13 @@
         CLASSES = (
             "Sources/com/woselenium/AcceptanceTest.java", 
             "Sources/com/woselenium/IsPresent.java", 
+            "Sources/com/woselenium/Matchers.java", 
             "Sources/com/woselenium/Page.java", 
-            "Sources/com/woselenium/StringResponsePage.java"
+            "Sources/com/woselenium/StringResponsePage.java", 
+            "Sources/com/woselenium/TestAction.java"
         ); 
         FRAMEWORKS = (
+            ERExtensions, 
             JavaEOAccess, 
             JavaEOControl, 
             JavaFoundation, 
