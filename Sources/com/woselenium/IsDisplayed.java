@@ -6,13 +6,12 @@ import org.hamcrest.TypeSafeMatcher;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-public class IsPresent extends TypeSafeMatcher<WebElement> {
+public class IsDisplayed extends TypeSafeMatcher<WebElement> {
 
 	@Override
 	public boolean matchesSafely(WebElement element) {
 		try {
-			element.getSize();
-			return true;
+			return element.isDisplayed();
 		} catch (NoSuchElementException e) {
 			return false;
 		}
@@ -22,8 +21,8 @@ public class IsPresent extends TypeSafeMatcher<WebElement> {
 		description.appendText("present");
 	}
 	
-	public static IsPresent present() {
-		return new IsPresent();
+	public static IsDisplayed present() {
+		return new IsDisplayed();
 	}
 
 }

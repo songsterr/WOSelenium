@@ -2,8 +2,8 @@ package com.woselenium;
 
 public class Matchers {
 
-	public static IsPresent present() {
-		return new IsPresent();
+	public static IsDisplayed displayed() {
+		return new IsDisplayed();
 	}
 
 }
