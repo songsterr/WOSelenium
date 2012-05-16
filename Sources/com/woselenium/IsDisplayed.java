@@ -18,7 +18,7 @@ public class IsDisplayed extends TypeSafeMatcher<WebElement> {
 	}
 
 	public void describeTo(Description description) {
-		description.appendText("present");
+		description.appendText("displayed");
 	}
 	
 	public static IsDisplayed present() {
