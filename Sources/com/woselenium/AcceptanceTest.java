@@ -12,13 +12,13 @@ import org.jmock.api.Invocation;
 import org.jmock.api.Invokable;
 import org.jmock.lib.legacy.ClassImposteriser;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.server.DefaultDriverFactory;
+import org.openqa.selenium.remote.server.DriverFactory;
 import org.openqa.selenium.support.PageFactory;
 
 import com.webobjects.appserver.WOActionResults;
@@ -30,17 +30,22 @@ public abstract class AcceptanceTest {
 
 	public static final String ACTION_COMMAND_SUCCEEDED_MESSAGE = "Action command succeeded.";
 
-	protected static WebDriver driver;
+	protected WebDriver driver;
 
-	@BeforeClass
-	public static void createDriver() throws MalformedURLException {
+	public AcceptanceTest(DriverFactory driverFactory) {
 		try {
-			driver = new RemoteWebDriver(new URL("http://localhost:7055/hub"), DesiredCapabilities.firefox());
+			this.driver = new RemoteWebDriver(new URL("http://localhost:7055/hub"), DesiredCapabilities.firefox());
 		} catch (WebDriverException e) {
 			if (e.getCause() instanceof HttpHostConnectException) {
-				driver = new FirefoxDriver();
+				this.driver = driverFactory.newInstance(DesiredCapabilities.firefox());
 			}
+		} catch (MalformedURLException e) {
+			throw new RuntimeException(e);
 		}
+	}
+
+	public AcceptanceTest() {
+		this(new DefaultDriverFactory());
 	}
 
 	@Before
