@@ -34,8 +34,10 @@ public abstract class AcceptanceTest {
 
 	public AcceptanceTest(DriverFactory driverFactory) {
 		try {
+			// Try to reuse existing running browser to speed things up
 			this.driver = new RemoteWebDriver(new URL("http://localhost:7055/hub"), DesiredCapabilities.firefox());
 		} catch (WebDriverException e) {
+			// Create new driver if no browser is running
 			if (e.getCause() instanceof HttpHostConnectException) {
 				this.driver = driverFactory.newInstance(DesiredCapabilities.firefox());
 			}
