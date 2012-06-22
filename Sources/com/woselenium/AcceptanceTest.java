@@ -4,21 +4,14 @@ package com.woselenium;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.apache.http.conn.HttpHostConnectException;
 import org.jmock.api.Invocation;
 import org.jmock.api.Invokable;
 import org.jmock.lib.legacy.ClassImposteriser;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.server.DefaultDriverFactory;
-import org.openqa.selenium.remote.server.DriverFactory;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.PageFactory;
 
 import com.webobjects.appserver.WOActionResults;
@@ -32,22 +25,21 @@ public abstract class AcceptanceTest {
 
 	protected WebDriver driver;
 
-	public AcceptanceTest(DriverFactory driverFactory) {
-		try {
-			// Try to reuse existing running browser to speed things up
-			this.driver = new RemoteWebDriver(new URL("http://localhost:7055/hub"), DesiredCapabilities.firefox());
-		} catch (WebDriverException e) {
+	public AcceptanceTest(String userAgent) {
+		// Try to reuse existing running browser to speed things up
+		driver = new RunningDriverManager().connect();
+		if (driver == null) {
 			// Create new driver if no browser is running
-			if (e.getCause() instanceof HttpHostConnectException) {
-				this.driver = driverFactory.newInstance(DesiredCapabilities.firefox());
+			FirefoxProfile profile = new FirefoxProfile();
+			if (userAgent != null) {
+				profile.setPreference("general.useragent.override", userAgent);
 			}
-		} catch (MalformedURLException e) {
-			throw new RuntimeException(e);
+			driver = new FirefoxDriver(profile);
 		}
 	}
 
 	public AcceptanceTest() {
-		this(new DefaultDriverFactory());
+		this(null);
 	}
 
 	@Before
