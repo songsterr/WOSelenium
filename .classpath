@@ -13,7 +13,7 @@
 	<classpathentry kind="lib" path="Libraries/jmock-2.4.0.jar"/>
 	<classpathentry kind="lib" path="Libraries/mockito-core-1.8.1-rc1.jar"/>
 	<classpathentry kind="lib" path="Libraries/objenesis-1.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="Libraries/selenium-server-standalone-2.21.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="Libraries/selenium-server-standalone-2.25.0.jar"/>
 	<classpathentry kind="con" path="WOFramework/ERExtensions"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
