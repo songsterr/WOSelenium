@@ -1,8 +1,8 @@
 package com.woselenium;
 
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.*;
 
 import org.jmock.api.Invocation;
 import org.jmock.api.Invokable;
@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WODirectAction;
@@ -26,21 +27,26 @@ public abstract class AcceptanceTest {
 	protected WebDriver driver;
 
 	public AcceptanceTest(String userAgent) {
-		// Try to reuse existing running browser to speed things up
-		driver = new RunningDriverManager().connect();
-		if (driver == null) {
-			// Create new driver if no browser is running
-			FirefoxProfile profile = new FirefoxProfile();
-			if (userAgent != null) {
-				profile.setPreference("general.useragent.override", userAgent);
-			}
-			driver = new FirefoxDriver(profile);
-		}
+		driver = createOrConnectToWebDriver(userAgent);
 	}
 
 	public AcceptanceTest() {
 		this(null);
 	}
+
+    public static WebDriver createOrConnectToWebDriver(String userAgent) {
+        // Try to reuse existing running browser to speed things up
+        WebDriver driver = new RunningDriverManager().connect();
+        if (driver == null) {
+            // Create new driver if no browser is running
+            FirefoxProfile profile = new FirefoxProfile();
+            if (userAgent != null) {
+                profile.setPreference("general.useragent.override", userAgent);
+            }
+            driver = new FirefoxDriver(profile);
+        }
+        return driver;
+    }
 
 	@Before
 	public void setUp() {
