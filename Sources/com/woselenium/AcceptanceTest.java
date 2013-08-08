@@ -1,8 +1,8 @@
 package com.woselenium;
 
 
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.jmock.api.Invocation;
 import org.jmock.api.Invokable;
@@ -13,7 +13,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WODirectAction;
