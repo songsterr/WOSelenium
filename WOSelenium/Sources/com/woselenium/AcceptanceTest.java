@@ -19,7 +19,7 @@ import com.webobjects.appserver.WODirectAction;
 
 @Ignore
 public abstract class AcceptanceTest {
-	public static final String BASE_URL = System.getProperty("selenium.baseUrl", "http://localhost/cgi-bin/WebObjects/Songsterr.woa/-41424");
+	public static String BASE_URL = System.getProperty("selenium.baseUrl", "http://localhost/cgi-bin/WebObjects/Songsterr.woa/-41424");
 
 	public static final String ACTION_COMMAND_SUCCEEDED_MESSAGE = "Action command succeeded.";
 
