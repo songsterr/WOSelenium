@@ -1,1 +1,3 @@
-WOSelenium provides a simple way to use Selenium Webdriver with WebObjects
+WOSelenium provides a simple way to use Selenium Webdriver with WebObjects.
+
+Example app uses PageObjects pattern - https://code.google.com/p/selenium/wiki/PageObjects
