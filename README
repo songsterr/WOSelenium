@@ -2,7 +2,9 @@ WOSelenium provides a way to use Selenium Webdriver with WebObjects.
 
 To check out example app:
 
-1. Install Firefox 10 (current version will not work, sorry) and make sure it is named as "Firefox" in Applications.
-2. Do "Run sa - WOApplication" for WOSeleniumExample.
-3. Do "Run as - JUnit Test" for CounterIncrementingTest.class.
-4. Read https://code.google.com/p/selenium/wiki/PageObjects.
+- Install Firefox 10 (current version will not work, sorry) and make sure it is named as "Firefox" in Applications.
+- Do "Run sa - WOApplication" for WOSeleniumExample.
+- Do "Run as - JUnit Test" for CounterIncrementingTest.class.
+- Read https://code.google.com/p/selenium/wiki/PageObjects.
+
+Firefox 10 download link: http://www.oldapps.com/mac/firefox.php?old_firefox=12489?download
