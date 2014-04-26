@@ -1,3 +1,8 @@
-WOSelenium provides a simple way to use Selenium Webdriver with WebObjects.
+WOSelenium provides a way to use Selenium Webdriver with WebObjects.
 
-Example app uses PageObjects pattern - https://code.google.com/p/selenium/wiki/PageObjects
+To check out example app:
+
+1. Install Firefox 10 (current version will not work, sorry) and make sure it is named as "Firefox" in Applications.
+2. Do "Run sa - WOApplication" for WOSeleniumExample.
+3. Do "Run as - JUnit Test" for CounterIncrementingTest.class.
+4. Read https://code.google.com/p/selenium/wiki/PageObjects.
