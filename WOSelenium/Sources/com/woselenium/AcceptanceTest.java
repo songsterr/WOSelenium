@@ -10,8 +10,6 @@ import org.jmock.lib.legacy.ClassImposteriser;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.PageFactory;
 
 import com.webobjects.appserver.WOActionResults;
@@ -34,17 +32,7 @@ public abstract class AcceptanceTest {
 	}
 
     public static WebDriver createOrConnectToWebDriver(String userAgent) {
-        // Try to reuse existing running browser to speed things up
-        WebDriver driver = new RunningDriverManager().connect();
-        if (driver == null) {
-            // Create new driver if no browser is running
-            FirefoxProfile profile = new FirefoxProfile();
-            if (userAgent != null) {
-                profile.setPreference("general.useragent.override", userAgent);
-            }
-            driver = new FirefoxDriver(profile);
-        }
-        return driver;
+        return new RunningDriverManager(userAgent).connect();
     }
 
 	@Before

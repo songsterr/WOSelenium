@@ -8,6 +8,7 @@
             "Sources/com/woselenium/IsDisplayed.java", 
             "Sources/com/woselenium/Matchers.java", 
             "Sources/com/woselenium/Page.java", 
+            "Sources/com/woselenium/RunningDriverManager.java", 
             "Sources/com/woselenium/StringResponsePage.java", 
             "Sources/com/woselenium/TestAction.java"
         ); 
