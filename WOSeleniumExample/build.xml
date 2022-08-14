@@ -75,7 +75,7 @@
 
 	<!-- woproject tasks -->
 	<target name="build.woapp" depends="compile">
-		<taskdef name="woapplication" classname="org.objectstyle.woproject.ant.WOApplication"/>
+		<taskdef name="woapplication" classname="org.objectstyle.woproject.ant.WOApplication" classpath="/home/admin/.jenkins/jobs/WonderHudsonBuild/workspace/Build/lib/woproject.jar" />
 
 		<woapplication name="${build.app.name}" frameworksBaseURL="/WebObjects/${build.app.name}.woa/Frameworks" destDir="${dest.dir}" customInfoPListContent="${customInfoPListContent}" principalClass="${principalClass}" webXML="${webXML}" webXML_CustomContent="${webXML_CustomContent}" servletAdaptor="er.extensions.jspservlet.ERXServletAdaptor">
 			<classes dir="${classes.dir}">
@@ -200,7 +200,7 @@
 	</target>
 
 	<target name="compile" depends="init.properties">
-		<taskdef name="wocompile" classname="org.objectstyle.woproject.ant.WOCompile" />
+		<taskdef name="wocompile" classname="org.objectstyle.woproject.ant.WOCompile" classpath="/home/admin/.jenkins/jobs/WonderHudsonBuild/workspace/Build/lib/woproject.jar"  />
 
 		<mkdir dir="bin" />
 		<wocompile srcdir="Sources" destdir="bin">

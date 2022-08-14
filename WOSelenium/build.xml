@@ -52,7 +52,7 @@
 
 	<!-- woproject tasks -->
 	<target name="build.woframework" depends="compile">
-		<taskdef name="woframework" classname="org.objectstyle.woproject.ant.WOFramework"/>
+		<taskdef name="woframework" classname="org.objectstyle.woproject.ant.WOFramework" classpath="/home/admin/.jenkins/jobs/WonderHudsonBuild/workspace/Build/lib/woproject.jar" />
 
 		<woframework name="${build.framework.name}" destDir="${dest.dir}" customInfoPListContent="${customInfoPListContent}" principalClass="${principalClass}" eoAdaptorClassName="${eoAdaptorClassName}" javaVersion="${javaVersion}" cfbundleversion="${cfBundleVersion}" cfbundleshortversion="${cfBundleShortVersion}" cfbundleID="${cfBundleID}">
 			<classes dir="${classes.dir}">
@@ -84,7 +84,7 @@
 	</target>
 	
 	<target name="compile" depends="init.build">
-		<taskdef name="wocompile" classname="org.objectstyle.woproject.ant.WOCompile" />
+		<taskdef name="wocompile" classname="org.objectstyle.woproject.ant.WOCompile" classpath="/home/admin/.jenkins/jobs/WonderHudsonBuild/workspace/Build/lib/woproject.jar"  />
 
 		<mkdir dir="bin" />
 		<wocompile srcdir="Sources" destdir="bin">
